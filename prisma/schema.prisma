@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// sqlite3 dev.db <------ to open up prisma database locally
+// npm install -g prisma <---------- to grant cli privilages for prisma
+// to create and apply migrations <---------- prisma db push
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource local {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+
+model Test {
+  id Int @id @default(autoincrement())
+  email String @unique
+  text String?
+}
