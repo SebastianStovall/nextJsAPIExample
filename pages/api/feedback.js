@@ -8,16 +8,14 @@ async function handler(req, res) {
     }
 
     if(req.method === "GET") {
-        try {
-            const feedback = await prisma.test.findMany();
+        const feedback = await getAllTestInstances()
+
+        // if feedback was not given, return an error
+        if(!(feedback)) {
+            res.status(500).json({ error: 'Something Went Retreiving Feeback' });
+        } else { // else, it was successful
             res.status(200)
             res.json(feedback)
-        } catch (error) {
-            console.error(error);
-            // chaining on the .json will send back the response on top of also sending back a status code
-            res.status(500).json({ error: 'Something Went Retreiving Feeback' });
-        } finally {
-            await prisma.$disconnect();
         }
     }
 }
@@ -32,6 +30,20 @@ async function createTestInstance(email, text, res) {
     } catch (e) {
         console.error(e);
         res.status(500).json({ error: 'Something Went Wrong Creating Feeback' });
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+
+// if req.method === 'GET', query for all instances on test table
+export async function getAllTestInstances() {
+    try {
+        const feedback = await prisma.test.findMany();
+        return feedback
+    } catch (error) {
+        console.error(error);
+        return null
     } finally {
         await prisma.$disconnect();
     }
