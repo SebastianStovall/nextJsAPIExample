@@ -9,12 +9,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// this object will look slightly different in a production app, it's url will change to the postgreSQL url from an env file, and the datasource header will not be 'local'
 datasource local {
   provider = "sqlite"
   url      = "file:./dev.db"
 }
 
 
+// when creating tables, you will need to put ---->  @@map(name: "your_schema_name.users") <----  for the last column that will set your SCHEMA NAME that you use for production
 model Test {
   id Int @id @default(autoincrement())
   email String @unique
