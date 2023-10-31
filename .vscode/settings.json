@@ -1,3 +1,6 @@
 {
-  "window.zoomLevel": 2
+  "window.zoomLevel": 0,
+  "cSpell.words": [
+    "datasource"
+  ]
 }

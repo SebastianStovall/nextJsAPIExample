@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 // sqlite3 dev.db <------ to open up prisma database locally
-// npm install -g prisma <---------- to grant cli privilages for prisma
+// npm install -g prisma <---------- to grant cli privileges for prisma
 // to create and apply migrations <---------- prisma db push
 
 generator client {

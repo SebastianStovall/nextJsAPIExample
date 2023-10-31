@@ -48,7 +48,7 @@ function HomePage() {
       <hr />
       <button onClick={loadFeedbackHandler}>Load All Feedback</button>
       <ul>
-        {/* dont need to set a !(feedbackIems) statement since useState is orginally an empty arr, so it will map over empty arr [] */}
+        {/* don't need to set a !(feedbackItems) statement since useState is originally an empty arr, so it will map over empty arr [] */}
         {feedbackItems.map((item) => <li key={item.id}>{item.text}</li>)}
       </ul>
     </div>
