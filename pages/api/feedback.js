@@ -12,7 +12,7 @@ async function handler(req, res) {
 
         // if feedback was not given, return an error
         if(!(feedback)) {
-            res.status(500).json({ error: 'Something Went Retreiving Feeback' });
+            res.status(500).json({ error: 'Something Went Retrieving Feedback' });
         } else { // else, it was successful
             res.status(200)
             res.json(feedback)
@@ -29,7 +29,7 @@ async function createTestInstance(email, text, res) {
         res.status(201).json({ message: 'Feedback created successfully' });
     } catch (e) {
         console.error(e);
-        res.status(500).json({ error: 'Something Went Wrong Creating Feeback' });
+        res.status(500).json({ error: 'Something Went Wrong Creating Feedback' });
     } finally {
         await prisma.$disconnect();
     }

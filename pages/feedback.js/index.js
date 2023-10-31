@@ -1,7 +1,7 @@
 // in this component, we are pre-rendering all our feedback (instances on test table in prisma) using getStaticProps()
 // achieves the same code with the GET fetch in the pages/index.js file, but now with pre-rendering
 
-// impor this helper function that extracts the GET request feedback data from the API route
+// import this helper function that extracts the GET request feedback data from the API route
 import { getAllTestInstances } from "../api/feedback"
 import { useState } from "react"
 
